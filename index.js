@@ -27,5 +27,5 @@ app.get('index.html', function(req, res) {
 });
 
 app.listen(port, function() {
-    console.log(`node unblocker process listening`);
+    console.log(`node IPSW SHSH Signing server started`);
 }).on("upgrade", unblocker.onUpgrade); 

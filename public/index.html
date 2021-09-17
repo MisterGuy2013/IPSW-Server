@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>IPSW SHSH Signing Server</title>
+  <title>Proxy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- header font -->
   <link href="//fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css">
@@ -16,15 +16,15 @@
   
     <div class="main">
   
-      <h1>IPSW Signing Server</h1>
+      <h1>Proxy</h1>
       
       <div id="error"></div>
 
       <form action="no-js" method="get" id="proxy-form">
         <p>
-          SHSH ROOT ADDRESS: 
+          URL: 
           <input type="text" id="url" name="url" autofocus="autofocus" />
-          <input type="submit" value="Start" />
+          <input type="submit" value="Go" />
         </p>
 
       </form>
@@ -38,16 +38,10 @@
 		
 		$('proxy-form').onsubmit = function(){
 			var url = $('url').value;
-			if(url=="Fortnite"){
-				url = "htt" + "ps:/" + "/www.goo"+ "gle.c"+"om";
-				///alert("Hello gamer, hope you enjoy my IPSW Server .) also please don't use for anything bad. And definiately not the dark web plz. If your part of the IT department, then you got us until next time.");
-				window.location.href='https://secret-reaches-97706.herokuapp.com/proxy/' + url;
+			if(url.substr(0,4) != "http"){
+				url = "https://" + url;
 			}
-			else{
-			alert("ERROR SHSH ROOT ADDRESS INVALID");
-				
-			}
-			
+			window.location.href='https://proxy-test.seven7four4.repl.co/proxy/' + url;
 			return false;
 		};
 		

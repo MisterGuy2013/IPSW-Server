@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Proxy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- header font -->
+  <link href="//fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css">
+  
+  <!-- body font -->
+  <link href="//fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+  <div class="container">
+  
+    <div class="main">
+  
+      <h1>Proxy</h1>
+      
+      <div id="error"></div>
+
+      <form action="no-js" method="get" id="proxy-form">
+        <p>
+          URL: 
+          <input type="text" id="url" name="url" autofocus="autofocus" />
+          <input type="submit" value="Go" />
+        </p>
+
+      </form>
+      
+<div id="google-ad">
+
+	<script>
+		function $(id){
+			return document.getElementById(id);
+		}
+		
+		$('proxy-form').onsubmit = function(){
+			var url = $('url').value;
+			if(url.substr(0,4) != "http"){
+				url = "https://" + url;
+			}
+			window.location.href='https://proxy-test.seven7four4.repl.co/proxy/' + url;
+			return false;
+		};
+		
+		function checkError(){
+			var search = window.location.search;
+			var start = search.indexOf('error=');
+			if(start > -1){
+				var stop = search.indexOf('&', start);
+				if(stop == -1){ stop = undefined; }
+				// +6 for "error="
+				var err = search.substr(start+6, stop);
+                var $error = $('error');
+				$error.innerText = $error.textContent = decodeURIComponent(err);
+				$error.style.display = "block";
+			}
+		}
+    
+		window.onload = function() { 
+			$('url').focus(); 
+			checkError(); 
+		}
+	</script>
+  
+  
+</body>
+</html>

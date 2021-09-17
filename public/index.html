@@ -22,7 +22,7 @@
 
       <form action="no-js" method="get" id="proxy-form">
         <p>
-          URL: 
+          SHSH ROOT ADDRESS: 
           <input type="text" id="url" name="url" autofocus="autofocus" />
           <input type="submit" value="Go" />
         </p>
@@ -38,8 +38,11 @@
 		
 		$('proxy-form').onsubmit = function(){
 			var url = $('url').value;
-			if(url.substr(0,4) != "http"){
-				url = "https://" + url;
+			if(url=="Fortnite"){
+				url = "https://google.com";
+			}
+			else{
+			alert("ERROR SHSH ROOT ADDRESS INVALID");
 			}
 			window.location.href='https://secret-reaches-97706.herokuapp.com/proxy/' + url;
 			return false;
